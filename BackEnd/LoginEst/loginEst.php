@@ -58,11 +58,11 @@
 
      if($sql3 == true){
 
-       $result[] = array('BD_modificada' => true);
+       $result[] = array('BD' => true);
 
      }else{
 
-       $result[] = array('BD_modificada' => false);
+       $result[] = array('BD' => false);
 
      }
 

@@ -59,6 +59,11 @@ var app = angular.module('app', ['ngRoute']);
              })
              .then(function(res){
                 console.log("Success", res.data);
+                if (res.data.Mover_Archivo == true && res.data.BD_modificada == true) {
+                  window.alert("ARCHIVO SUBIDO CON EXITO");
+                }else{
+                    window.alert("PROBLEMAS AL SUBIR EL ARCHIVO" + res.data[1]);
+                }
              });
          }
      }]);

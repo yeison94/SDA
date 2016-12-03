@@ -22,6 +22,12 @@
         -Para descargar un archivo montado por el profesor o subir un archivo, por favor primero seleccione el curso
       </p>
     </div>
+    <br>
+    <div class="alert alert-info" role="alert">
+      <p>
+        -El nombre del archivo a subir, debe tener un nombre que no tenga los archivos ya subidos por otros alumnos
+      </p>
+    </div>
   </div>
   <div class="col-lg-5 col-lg-offset-1">
     <div class="jumbotron">
@@ -61,7 +67,7 @@
       <br>
       <div class="form-group">
           <br>
-          <input data-max-size="2048" type="file"  file-model = "myFile" >
+          <input type="file"  file-model = "myFile" >
           <br>
           <button type="button" class="btn btn-success btn-lg btn-block" data-ng-click="uploadFile()">Subir</button>
       </div>
