@@ -32,16 +32,6 @@
   <div class="col-lg-5 col-lg-offset-1">
     <div class="jumbotron">
       <h4><p class="text-center">  Material subido por el docente</p></h4>
-      <!-- <table class="table">
-        <tr>
-          <th><b>NOMBRE ARCHIVOS</b></th>
-        </tr>
-        <tr data-ng-repeat="x in archi_sub">
-          <td>{{x.nombre_archivo}}</td>
-          <td>{{x.asignatura}}</td>
-          <td>{{x.contra}}</td>
-        </tr>
-      </table> -->
       <form name="myForm2">
         <select name="repeatSelect2" class="form-control" ng-model='data2.model'>
           <option ng-repeat="opti in archi_sub" value="{{opti.nombre_archivo}}">{{opti.nombre_archivo}} </option>

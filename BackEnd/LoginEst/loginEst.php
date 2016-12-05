@@ -81,7 +81,8 @@
     $result = array();
     if($operacion == "mostrar"){
       $curso = $data["asignatura"];
-      $consult=mysqli_query($mysqli,"SELECT * FROM archivos WHERE curso = '$curso'");
+      $autor = " alumno";
+      $consult=mysqli_query($mysqli,"SELECT * FROM archivos WHERE curso = '$curso' AND nombre_autor <> '$autor'");
       while($row = mysqli_fetch_assoc($consult)){
         $aux = array('nombre_archivo' => $row['nombre_archivo']);
         $result[] = $aux;

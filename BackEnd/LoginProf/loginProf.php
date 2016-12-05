@@ -62,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
       $result = array();
 
-
       $consult=mysqli_query($mysqli,"SELECT * FROM archivos WHERE nombre_autor = '$nombre_profesor_logeado' AND curso = '$curso'");
       while($row = mysqli_fetch_assoc($consult)){
         $aux = array('nombre_autor' => $row['nombre_autor'],
@@ -74,6 +73,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     }
 
+    if($operacion == "obtener_archivos_alumnos"){
+      $result = array();
+      $consult=mysqli_query($mysqli,"SELECT * FROM archivos WHERE nombre_autor <> '$nombre_profesor_logeado' AND curso = '$curso'");
+      while($row = mysqli_fetch_assoc($consult)){
+        $aux = array('nombre_autor' => $row['nombre_autor'],
+                      'curso' => $row['curso'],
+                      'nombre_archivo' => $row['nombre_archivo']);
+
+        $result[] = $aux;
+      }
+      // $result[] = array('curso' => $curso,
+      //                   'Profesor' =>   $nombre_profesor_logeado);
+    }
 }
 
  $result2 = json_encode($result);

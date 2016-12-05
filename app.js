@@ -18,7 +18,7 @@ var app = angular.module('app', ['ngRoute']);
         controller: 'ControllerProfe'
       })
       .when('/interfaceProfesor',{
-        templateUrl : 'FrontEnd/View/interfaceProfesor.html',
+        templateUrl : 'FrontEnd/View/interfaceProfesor.php',
         controller:'controllerInterfaceProf'
       })
       .when('/interfaceEstudiante',{
@@ -233,7 +233,12 @@ var app = angular.module('app', ['ngRoute']);
 
     }
 
+    $scope.data2 = {
+      model: null
+    };
+
     $scope.archi_sub = [];
+    $scope.archi_sub_alumnos = [];
 
     $scope.servicio = ServicioDatos;
     // console.log(ServicioDatos.datosCompatidos);
@@ -249,8 +254,23 @@ var app = angular.module('app', ['ngRoute']);
     .then(function(res){
 
        $scope.archi_sub = res.data;
-       console.log("Success", res.data);
+       //console.log("Success", res.data);
     });
+
+    //POST para obtener todos los archivos montados por los alumnos
+    var fd3 = new FormData();
+    fd3.append('operacion', "obtener_archivos_alumnos");
+    fd3.append('curse', ServicioDatos.datosCompatidos);
+    $http.post("BackEnd/LoginProf/loginProf.php", fd3, {
+        transformRequest: angular.identity,
+        headers: {'Content-Type': undefined,'Process-Data': false}
+    })
+    .then(function(res){
+        $scope.archi_sub_alumnos = res.data;
+        console.log(res.data);
+    });
+
+    //window.alert(ServicioDatos.datosCompatidos);
 
     $scope.uploadFile = function(){
        var file = $scope.myFile;
@@ -311,9 +331,7 @@ var app = angular.module('app', ['ngRoute']);
               // var blob = new Blob([res.data], {type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
               // var objectUrl = URL.createObjectURL(blob);
               // window.open(objectUrl);
-            });
-
-
+        });
     }
   }
 
