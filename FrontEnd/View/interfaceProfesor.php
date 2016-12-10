@@ -28,6 +28,10 @@
           </select>
             <br>
         </form>
+        <?php
+        $enlace = "BackEnd/LoginProf/download.php?profesor=" . "{{profesor_logeado}}" . "&" . "archivo=" .  "{{data2.model}}";
+        echo "<a href='$enlace'>Descargar archivo seleccionado</a>";
+         ?>
       </div>
   </div>
 </div>

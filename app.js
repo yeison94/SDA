@@ -239,9 +239,10 @@ var app = angular.module('app', ['ngRoute']);
 
     $scope.archi_sub = [];
     $scope.archi_sub_alumnos = [];
+    $scope.profesor_logeado = ServicioDatos.datosCompatidos;
 
     $scope.servicio = ServicioDatos;
-    // console.log(ServicioDatos.datosCompatidos);
+    // console.log('Servicio compartido',ServicioDatos.datosCompatidos);
 
     //POST para obtener todos los archivos montados por el profesor
     var fd2 = new FormData();
