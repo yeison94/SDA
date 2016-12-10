@@ -287,6 +287,12 @@ var app = angular.module('app', ['ngRoute']);
        $route.reload();
   };
 
+  $scope.cerrarSesion = function(){
+
+      $location.path('/loginProfesor');
+
+  }
+
   });
 
  app.controller('controllerInterfaceEst', function($scope,ServicioDatos, $location, $route, $http, fileUpload){
